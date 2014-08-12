@@ -23,9 +23,11 @@ TEMPLATE = app
 SOURCES += main.cpp \
     src/qcookie.cpp \
     src/qttimeutils.cpp \
-    src/qregexutils.cpp
+    src/qregexutils.cpp \
+    src/qsqlutils.cpp
 
 HEADERS += \
     src/qcookie.h \
     src/qttimeutils.h \
-    src/qregexutils.h
+    src/qregexutils.h \
+    src/qsqlutils.h
