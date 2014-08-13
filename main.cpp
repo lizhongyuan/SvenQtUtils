@@ -2,6 +2,7 @@
 #include <src/qttimeutils.h>
 #include <src/qregexutils.h>
 #include <src/qsqlutils.h>
+#include <src/qcharsetutils.h>
 
 #include<QtDebug>
 
@@ -12,6 +13,8 @@ int main(int argc, char *argv[])
     qDebug()<<QCoreApplication::libraryPaths();
     //QCoreApplication::addLibraryPath("/home/ganji/Qt5.2.1/5.2.1/gcc_64/plugins/sqldrivers/");
     //QCoreApplication::addLibraryPath("/usr/local/Trolltech/Qt-4.8.6/plugins");
+
+    QCharSetUtils::SetCharset();
 
     // 1. example
     /*
@@ -50,8 +53,9 @@ int main(int argc, char *argv[])
         qDebug()<<query.value(0).toInt();
     */
 
-    //mysqlUtil.selectFromDB("select task_id from distributed_sys_db.distributed_simulator_tbl limit 10");
-    mysqlUtil.selectFromDB("select * from distributed_sys_db.distributed_simulator_tbl limit 10");
+    //mysqlUtil.selectFromDB("select * from distributed_sys_db.distributed_simulator_tbl limit 10");
+    //mysqlUtil.selectFromDB("SELECT web_recommends FROM sd_keywordindex WHERE keywordid=(SELECT id FROM sd_keyword WHERE NAME=\'北京商铺招租\') AND DATE_SUB(CURDATE(), INTERVAL 1 DAY)<=DATE(created_at);");
+    mysqlUtil.selectFromDB("SELECT web_recommends FROM sd_keywordindex WHERE keywordid=(SELECT id FROM sd_keyword WHERE id=116) AND DATE_SUB(CURDATE(), INTERVAL 1 DAY)<=DATE(created_at);");
 
     qDebug()<<"----------------------";
 
